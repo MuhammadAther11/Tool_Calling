@@ -13,8 +13,15 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
-external_client = AsyncOpenAI(api_key=GEMINI_API_KEY, base_url=BASE_URL)
-llm_model = OpenAIChatCompletionsModel(model="gemini-2.5-flash", openai_client=external_client)
+external_client = AsyncOpenAI(
+    api_key=GEMINI_API_KEY,
+    base_url=BASE_URL
+    )
+
+llm_model = OpenAIChatCompletionsModel(
+    model="gemini-2.5-flash", 
+    openai_client=external_client
+    )
 
 # 1) Two tiny specialists
 spanish = Agent(
